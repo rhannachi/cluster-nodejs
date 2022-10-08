@@ -1,0 +1,26 @@
+{
+  "name": "cluster-nodejs",
+  "version": "1.0.0",
+  "repository": "git@github.com:ramzi-hannachi-1991/cluster-nodejs.git",
+  "author": "Ramzi <ramzi.hannachi1991@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "NODE_ENV=development ts-node-dev -r tsconfig-paths/register ./src/index.ts",
+    "ts:check": "tsc --noemit",
+    "lint": "yarn eslint ."
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.14",
+    "@types/node": "^18.8.3",
+    "@typescript-eslint/eslint-plugin": "^5.39.0",
+    "@typescript-eslint/parser": "^5.39.0",
+    "eslint": "^8.25.0",
+    "eslint-config-prettier": "^8.5.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.8.4"
+  },
+  "dependencies": {
+    "cluster": "^0.7.7",
+    "express": "^4.18.1"
+  }
+}

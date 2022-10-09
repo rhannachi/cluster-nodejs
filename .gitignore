@@ -108,3 +108,5 @@ globalConfig.json
 
 
 .idea/
+
+build/

@@ -2,11 +2,13 @@
 version: "3.9"
 services:
   app:
-    container_name: 'nodejs'
+    container_name: 'nodejs-container'
     build:
       context: .
     environment:
-      PORT: 3000
+      - NODE_ENV=production
+      - PORT=3000
+      - URI_CHANNEL=amqp://rabbitmq
     ports:
       - '3000:3000'
     command: yarn pm2:start
@@ -16,7 +18,7 @@ services:
       - rabbitmq
 
   rabbitmq:
-    container_name: 'rabbitmq'
+    container_name: 'rabbitmq-container'
     image: rabbitmq:3.8-management-alpine
     networks:
       - app-network

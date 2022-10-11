@@ -8,10 +8,11 @@ module.exports = {
       exec_mode: "cluster",
       watch: true,
       max_memory_restart: '1G',
-      env: {
-        NODE_ENV: 'production',
-        PORT: 3000,
-      }
+      // env: {
+      //   URI_CHANNEL: 'amqp://rabbitmq',
+      //   NODE_ENV: 'production',
+      //   PORT: 3000,
+      // }
     },
     {
       name: 'Worker1',

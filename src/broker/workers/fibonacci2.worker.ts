@@ -1,5 +1,5 @@
 import amqplib, {Channel, Connection} from 'amqplib/callback_api'
-import {URI_CHANNEL} from "@/broker/helpers";
+import {URI_CHANNEL} from "@/config";
 
 const QUEUE_NAME = 'FabSeries2' as const
 

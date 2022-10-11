@@ -1,6 +1,22 @@
 # Cluster nodejs typescript 
 ### PM2, RabbitMQ, Redis and Nginx
 
+# Start project
+- Building an image\
+``
+$ docker-compose build
+``
+- Running containers\
+``
+$ docker-compose up
+``
+- Running pm2 monitor\
+``
+$ docker exec -it nodejs-container sh
+``\
+``
+$ yarn pm2:monit
+``
 
 ## Standard process vs Process with worker threads
 We can think of running our application in a cluster.\
@@ -23,17 +39,6 @@ While using loadtest, we can use number of parameters like:
 yarn dev
 
 loadtest -n 1000 -c 100 --rps 200 http://localhost:3000/api/fibonacci?value=10
-```
-
-## Artillery 
-While using Artillery, we can use number of parameters like:
-- quick : used for ad-hoc testing
-- --count : used for creating virtual users
-- -n : number of request per virtual user
-```
-yarn dev
-
-artillery quick --count 10 -n 20 http://localhost:3000/api/fibonacci?value=20
 ```
 
 # PM2

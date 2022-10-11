@@ -9,11 +9,12 @@
     "build": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./build",
     "ts:check": "tsc --noemit",
     "lint": "yarn eslint .",
-    "pm2:start": "yarn build && NODE_ENV=production pm2 start pm2.config.js",
+    "pm2:start": "yarn build && NODE_ENV=production pm2 start pm2.config.js --no-daemon",
     "pm2:monit": "pm2 monit",
     "pm2:delete": "pm2 delete all"
   },
   "dependencies": {
+    "amqplib": "^0.10.3",
     "express": "^4.18.1"
   },
   "engines": {
@@ -21,11 +22,11 @@
     "node": ">=16.15.0"
   },
   "devDependencies": {
+    "@types/amqplib": "^0.8.2",
     "@types/express": "^4.17.14",
     "@types/node": "^18.8.3",
     "@typescript-eslint/eslint-plugin": "^5.39.0",
     "@typescript-eslint/parser": "^5.39.0",
-    "artillery": "^2.0.0-23",
     "dotenv": "^16.0.3",
     "eslint": "8.22.0",
     "eslint-config-prettier": "^8.5.0",

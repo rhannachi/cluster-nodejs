@@ -1,10 +1,9 @@
 import express, {Express} from "express";
-import 'dotenv/config'
 import router from "@/routes";
+import {PORT} from "@/config";
 
 const app: Express = express();
-const port = process.env.PORT
 
 app.use('/api', router)
 
-app.listen(port, () => console.log(`Express App is running on PORT : ${port}`));
+app.listen(PORT, () => console.log(`Express App is running on PORT : ${PORT}`));

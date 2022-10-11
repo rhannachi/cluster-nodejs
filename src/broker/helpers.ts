@@ -1,1 +1,1 @@
-export const URI_CHANNEL = 'amqp://localhost' as const
+export const URI_CHANNEL = 'amqp://rabbitmq' as const

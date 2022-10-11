@@ -1,0 +1,26 @@
+
+version: "3.9"
+services:
+  app:
+    container_name: 'nodejs'
+    build:
+      context: .
+    environment:
+      PORT: 3000
+    ports:
+      - '3000:3000'
+    command: yarn pm2:start
+    networks:
+      - app-network
+    links:
+      - rabbitmq
+
+  rabbitmq:
+    container_name: 'rabbitmq'
+    image: rabbitmq:3.8-management-alpine
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

@@ -25,17 +25,6 @@ yarn dev
 loadtest -n 1000 -c 100 --rps 200 http://localhost:3000/api/fibonacci?value=10
 ```
 
-## Artillery 
-While using Artillery, we can use number of parameters like:
-- quick : used for ad-hoc testing
-- --count : used for creating virtual users
-- -n : number of request per virtual user
-```
-yarn dev
-
-artillery quick --count 10 -n 20 http://localhost:3000/api/fibonacci?value=20
-```
-
 # PM2
 Is a production process manager for NodeJs applications with a build-in load-balancer.
 

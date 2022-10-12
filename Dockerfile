@@ -1,8 +1,8 @@
 
 FROM node:16.15-alpine3.14
 
-RUN mkdir -p /home/cluster-nodejs
-WORKDIR /home/cluster-nodejs
+RUN mkdir -p /home/app
+WORKDIR /home/app
 
 # add new user
 RUN adduser -S ramzi
@@ -17,7 +17,7 @@ COPY . .
 # install dependencies node_modules
 RUN yarn --network-timeout 100000
 
-RUN chown -R ramzi /home/cluster-nodejs
+RUN chown -R ramzi /home/app
 USER ramzi
 
 #EXPOSE 3000

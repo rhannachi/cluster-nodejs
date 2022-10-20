@@ -64,17 +64,10 @@ yarn pm2:start
 yarn pm2:monit
 ```
 
-# Setting up Path Alias and tsc build
+# RabbitMQ 
+I used the default configuration used by the official RabbitMQ docker image 'rabbitmq:3.8-management-alpine'.\
+You can change RabbitMQ connection information in docker-compose.yml.
 
-```
-// tsconfig.json
-"baseUrl": "src",
-"rootDir": "src",
-"paths": {
-    "@/*": ["*"]
-}
+To check if our RabbitMQ is working well, it is best to click http://localhost:15673 on the browser. We should see a long screen like below:
 
-// package.json
-"build": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./build",
-
-```
+![](assets/rabbitmq.png)

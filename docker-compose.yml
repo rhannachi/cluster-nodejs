@@ -16,7 +16,7 @@ services:
     environment:
       - NODE_ENV=production
       - PORT=3000
-      - URI_CHANNEL=amqp://rabbitmq
+      - URI_CHANNEL=amqp://guest:guest@rabbitmq
     networks:
       - app-network
     links:
@@ -25,6 +25,15 @@ services:
   rabbitmq:
     container_name: 'rabbitmq-container'
     image: rabbitmq:3.8-management-alpine
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    ports:
+      - '5673:5672'
+      - '15673:15672'
+    volumes:
+      - '~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/'
+      - '~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq'
     networks:
       - app-network
 

@@ -5,13 +5,18 @@ services:
     container_name: 'nodejs-container'
     build:
       context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '/usr/app/node_modules'
+      - '.:/usr/app'
+      - '/tmp:/tmp' # volume logs
+    ports:
+      - '3000:3000'
+    command: yarn pm2:start
     environment:
       - NODE_ENV=production
       - PORT=3000
       - URI_CHANNEL=amqp://rabbitmq
-    ports:
-      - '3000:3000'
-    command: yarn pm2:start
     networks:
       - app-network
     links:

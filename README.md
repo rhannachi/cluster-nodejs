@@ -2,14 +2,17 @@
 ### PM2, RabbitMQ, Redis and Nginx
 
 # Start project
+
 - Building an image\
 ``
 $ docker-compose build
 ``
+
 - Running containers\
 ``
 $ docker-compose up
 ``
+
 - Running pm2 monitor\
 ``
 $ docker exec -it nodejs-container sh
@@ -17,6 +20,18 @@ $ docker exec -it nodejs-container sh
 ``
 $ yarn pm2:monit
 ``
+
+- See the App logs\
+``
+$ cat /tmp/app.log
+``\
+``
+$ cat /tmp/worker-1.log
+``\
+``
+$ cat /tmp/worker-2.log
+``
+
 
 ## Standard process vs Process with worker threads
 We can think of running our application in a cluster.\

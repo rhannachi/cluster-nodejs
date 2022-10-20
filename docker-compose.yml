@@ -9,6 +9,7 @@ services:
     volumes:
       - '/usr/app/node_modules'
       - '.:/usr/app'
+      - '/tmp:/tmp' # volume logs
     ports:
       - '3000:3000'
     command: yarn pm2:start

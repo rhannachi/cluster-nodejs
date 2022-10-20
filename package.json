@@ -5,7 +5,6 @@
   "author": "Ramzi <ramzi.hannachi1991@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "NODE_ENV=development ts-node-dev -r tsconfig-paths/register ./src/server.ts",
     "build": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./build",
     "ts:check": "tsc --noemit",
     "lint": "yarn eslint .",
@@ -32,7 +31,6 @@
     "eslint-config-prettier": "^8.5.0",
     "loadtest": "^5.2.0",
     "pm2": "^5.2.0",
-    "ts-node-dev": "^2.0.0",
     "tsconfig-paths": "^4.1.0",
     "tscpaths": "^0.0.9",
     "typescript": "^4.8.4"

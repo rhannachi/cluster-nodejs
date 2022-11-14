@@ -1,5 +1,5 @@
 # Cluster nodejs typescript 
-### PM2, RabbitMQ, Redis and Nginx
+### PM2, Node, RabbitMQ and Redis 
 
 # Start project
 
@@ -19,6 +19,10 @@ $ docker exec -it nodejs-container sh
 ``\
 ``
 $ yarn pm2:monit
+``
+
+``
+ http://localhost:3000/api/fibonacci?value=18
 ``
 
 - See the App logs\
@@ -51,7 +55,8 @@ While using loadtest, we can use number of parameters like:
 - -c : concurrent requests
 - --rps : number of requests per second
 ```
-loadtest -n 1000 -c 100 --rps 200 http://localhost:3000/api/fibonacci?value=10
+$ docker exec -it nodejs-container sh
+$ yarn loadtest -n 1000 -c 100 --rps 200 http://localhost:3000/api/fibonacci?value=10
 ```
 
 # PM2

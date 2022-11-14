@@ -17,10 +17,15 @@ services:
       - NODE_ENV=production
       - PORT=3000
       - URI_CHANNEL=amqp://guest:guest@rabbitmq
+      - URI_REDIS=redis://redis:6379
     networks:
       - app-network
     links:
       - rabbitmq
+      - redis
+#    depends_on:
+#      - rabbitmq
+#      - redis
 
   rabbitmq:
     container_name: 'rabbitmq-container'
@@ -34,6 +39,14 @@ services:
     volumes:
       - '~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/'
       - '~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq'
+    networks:
+      - app-network
+
+  redis:
+    container_name: 'redis-container'
+    image: 'redis'
+    ports:
+      - "6379:6379"
     networks:
       - app-network
 
